@@ -1,4 +1,4 @@
-import { OrderType } from "./orderType.enum";
+import { OrderType } from "./orderType";
 
 export interface InitTransaction {
     amount?: number; 
