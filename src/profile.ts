@@ -1,4 +1,4 @@
-import { IProfile } from "./interface/Iprofile";
+import { IProfile } from "./interface/iprofile";
 import { isSSR } from "./utils";
 import iFrameBuilder from "./utils/iframeBuilder";
 import { buildUrl } from "./utils/queryBuilder";

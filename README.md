@@ -34,8 +34,10 @@ v8.16.0
       - [Options](#options)
     - [transact](#transact)
       - [Options](#options-1)
-    - [profile](#profile)
+    - [transactExternal](#transactexternal)
       - [Options](#options-2)
+    - [profile](#profile)
+      - [Options](#options-3)
   - [Contributing](#contributing)
   - [Credits](#credits)
   - [Built With](#built-with)
@@ -135,7 +137,7 @@ const MyComponent: React.FC = () => {
 ### transact
 
 ```js
-transact(props: InitTransaction, isExternal = false)
+transact(props: InitTransaction)
 ```
 
 Open the cashlink payment view
@@ -146,7 +148,7 @@ const ChuckNorrisJokes: React.FC = () => {
 
   const onOpenP2p = () => {
     // TOKEN is gotten from cashlink 
-    CashlinkSdk.transact({amount: 0, orderType: 'DEPOSIT', token: ''}, true)
+    CashlinkSdk.transact({amount: 0, orderType: 'DEPOSIT', token: 'TOKEN'}, true)
   };
 
   return (
@@ -180,13 +182,51 @@ type OrderType =  'WITHDRAWAL' | 'DEPOSIT';
 
 The property passed to cashlink modal
 
-`isExternal`
+### transactExternal
+
+```js
+transactExternal(props: ExternInitTransaction)
+```
+
+Open the cashlink payment view for 3rd party integration
+
+```tsx
+const ChuckNorrisJokes: React.FC = () => {
+
+
+  const onOpenP2p = () => {
+    // TOKEN is gotten from cashlink 
+    CashlinkSdk.transactExternal({requestId: '', requestId: '', token: ''}, true)
+  };
+
+  return (
+    <div className="Comments">
+      <p>Pay money</p>
+      <button disabled={loading} onClick={onOpenP2p}>
+        Next Joke
+      </button>
+    </div>
+  );
+};
+```
+
+#### Options
+
+`props`
 
 | Type | Default value |
 | --- | --- |
-| boolean | false |
+| ExternInitTransaction |  |
 
-For third party integration value should be set to ``true``
+```tsx
+export interface ExternInitTransaction {
+    token: string;
+    requestId: string;
+    chatToken: string;
+}
+```
+
+The property passed to cashlink modal
 
 ### profile
 

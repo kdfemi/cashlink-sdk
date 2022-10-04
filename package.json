@@ -16,7 +16,15 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "keywords": ["cashlink", "sdk", "crypto", "p2p", "currency", "payment", "fiat"],
+  "keywords": [
+    "cashlink",
+    "sdk",
+    "crypto",
+    "p2p",
+    "currency",
+    "payment",
+    "fiat"
+  ],
   "author": "kdfemi <koladefemi@gmail.com>",
   "license": "ISC",
   "devDependencies": {

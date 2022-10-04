@@ -8,7 +8,7 @@ const Dotenv = require('dotenv-webpack');
    plugins: [
     new Dotenv(
         new Dotenv({
-            path: './.env.prod', 
+            path: './.env', 
             silent: false,
             defaults: false,
         })
