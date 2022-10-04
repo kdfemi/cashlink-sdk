@@ -1,9 +1,9 @@
-import { InitTransaction } from "./interface/initTransaction";
+import { IProfile } from "./interface/Iprofile";
 import { isSSR } from "./utils";
 import iFrameBuilder from "./utils/iframeBuilder";
 import { buildUrl } from "./utils/queryBuilder";
 
-const profile = (props: InitTransaction) => {
+const profile = (props: IProfile) => {
     if(isSSR()) {
         return;
     }
