@@ -1,5 +1,5 @@
 node_modules
 /lib
 .env-cmdrc
-.env.*
-.env.*
+.env.dev
+.env.prod
