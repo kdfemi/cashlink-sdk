@@ -4,7 +4,7 @@ import { closeModal } from "./utils/closeModal";
 
 let cashLinkInit = false;
 
-const init = () => {
+const init = (isDev = false) => {
     if(!isSSR()) {
         if(cashLinkInit) {
             window.removeEventListener('message', onMessageHandler)
@@ -12,6 +12,11 @@ const init = () => {
         cashLinkInit = true;
     
         window.addEventListener('message', onMessageHandler, false)
+    }
+    if(isDev) {
+        localStorage.setItem('CASH_LINK_ENV', 'dev')
+    } else {
+        localStorage.setItem('CASH_LINK_ENV', 'prod')
     }
     return cashLinkInit;
 }

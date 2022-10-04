@@ -1,11 +1,11 @@
 {
   "name": "cashlink-sdk",
   "version": "1.0.0",
-  "description": "Cashlink react sdk",
+  "description": "Cashlink web sdk",
   "main": "lib/bundle.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build:staging": "rimraf lib && webpack --config webpack.dev.js",
+    "build:dev": "rimraf lib && webpack --config webpack.dev.js",
     "build": "rimraf lib && webpack --config webpack.prod.js",
     "lint": "eslint --fix 'src/**/*.ts'",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
@@ -16,7 +16,7 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "keywords": [],
+  "keywords": ["cashlink", "sdk", "crypto", "p2p", "currency", "payment", "fiat"],
   "author": "kdfemi <koladefemi@gmail.com>",
   "license": "ISC",
   "devDependencies": {
@@ -56,5 +56,13 @@
     "testMatch": [
       "**/__tests__/**/*.test.ts"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdfemi/cashlink-sdk.git"
+  },
+  "homepage": "https://github.com/kdfemi/cashlink-sdk",
+  "bugs": {
+    "url": "https://github.com/kdfemi/braces/cashlink-sdk/issues"
   }
 }

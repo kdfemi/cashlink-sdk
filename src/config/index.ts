@@ -3,9 +3,9 @@ import { isSSR } from "../utils";
 
 
 export const config = {
-    // TODO: change
-    url: 'http://localhost:3002/v2',
-    modalId: 'cahslink_modal',
+    url: process.env.CASH_LINK_URL,
+    staging_url: process.env.CASH_LINK_URL_STAGING,
+    modalId: 'cash_link_modal',
     origin: isSSR() ? '' : window.location.origin,
-    closeEvent: 'caslink-close'
+    closeEvent: 'cash_link_close'
 }
