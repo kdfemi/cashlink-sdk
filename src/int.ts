@@ -4,6 +4,11 @@ import { closeModal } from "./utils/closeModal";
 
 let cashLinkInit = false;
 
+/**
+ * Method called before any other method, it get's the Cashlink popup ready
+ * @param isDev if should show Cashlink dev environment
+ * @returns {Boolean} if Widget initialization was successful
+ */
 const init = (isDev = false) => {
     if(!isSSR()) {
         if(cashLinkInit) {

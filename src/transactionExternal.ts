@@ -3,6 +3,11 @@ import { isSSR } from "./utils";
 import iFrameBuilder from "./utils/iframeBuilder";
 import { buildUrl } from "./utils/queryBuilder";
 
+/**
+ * Initiate Transaction has a 3rd party
+ * @param props External transaction request body
+ * @returns 
+ */
 const transactExternal = (props: ExternInitTransaction) => {
     if(isSSR()) {
         return;
@@ -10,13 +15,13 @@ const transactExternal = (props: ExternInitTransaction) => {
     const {
         token,
         chatToken,
-        requestId
+        orderId
     } = props;
 
-    const src =  buildUrl('external/:token/:requestId/:extChatToken', {
+    const src =  buildUrl('external/:token/:orderId/:extChatToken', {
         token: token,
         extChatToken: chatToken,
-        requestId
+        orderId
     });
     iFrameBuilder(src);
 }

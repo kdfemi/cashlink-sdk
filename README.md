@@ -221,7 +221,7 @@ const ChuckNorrisJokes: React.FC = () => {
 ```tsx
 export interface ExternInitTransaction {
     token: string;
-    requestId: string;
+    orderId: string;
     chatToken: string;
 }
 ```

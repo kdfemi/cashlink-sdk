@@ -1,5 +1,11 @@
 import { config } from "../config";
 
+/**
+ * 
+ * @param src iframe url
+ * @param showFrame if the iframe should be immediately appended to the body
+ * @returns {HTMLDivElement} the iframe popup element
+ */
 const iFrameBuilder = (src: string, showFrame = true) => {
     const iframe = document.createElement('iframe');
     iframe.style.height = '100%';

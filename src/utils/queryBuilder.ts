@@ -1,7 +1,8 @@
 import { config } from "../config";
 
 /**
- * 
+ * @ignore
+ * Build Cashlink url 
  * @param path url path to point to, excluding hostname
  * @param props path param and query param
  * @returns url with path param value and query param
