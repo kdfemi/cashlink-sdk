@@ -22,6 +22,11 @@ export const config = {
      */
     modalId: 'cash_link_modal',
     /**
+     * Html ```id``` attribute for the loader 
+     * @type {String}
+     */
+    loaderId: 'cash_link_loader',
+    /**
      * the iframe parent url
      * @type {String} 
      */
