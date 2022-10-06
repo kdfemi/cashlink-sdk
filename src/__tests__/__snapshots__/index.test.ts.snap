@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test sdk index open 1`] = `
+{
+  "init": [Function],
+  "profile": [Function],
+  "transact": [Function],
+  "transactExternal": [Function],
+}
+`;
