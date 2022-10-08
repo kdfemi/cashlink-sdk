@@ -1,3 +1,4 @@
+import { zIndexRange } from ".";
 import { config } from "../config";
 
 /**
@@ -7,10 +8,11 @@ import { config } from "../config";
  * @returns {HTMLDivElement} the iframe popup element
  */
 const iFrameBuilder = (src: string, showFrame = true) => {
+    const modalZIndex = '99999999999';
     const iframe = document.createElement('iframe');
     const loader = document.createElement('div');
     loader.innerHTML = `
-        <div id="${config.loaderId}" style="position:absolute ; display: flex; justify-content: center; align-items: center; width: 100%; top: 0; left:0; height: 100%;">
+        <div id="${config.loaderId}" style="position:absolute; display: flex; justify-content: center; align-items: center; width: 100%; top: 0; left:0; height: 100%; background-color: rgba(0,0,0,0.5)">
             <div style="background-color: white; height: 240px; width: 240px; display: flex; justify-content: center; align-items: center; border-radius: 8px">
                 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: rotate 2s infinite;">
                     <path d="M42.3873 4.05543C30.4886 7.80562 20.0955 15.252 12.7181 25.3127C5.34069 35.3734 1.36325 47.5243 1.36365 60C1.36365 92.3836 27.6164 118.636 60 118.636C86.8555 118.636 110.084 100.432 116.752 74.8036C117.025 73.7533 116.87 72.6375 116.321 71.7015C115.772 70.7655 114.873 70.0861 113.823 69.8127C112.772 69.5393 111.657 69.6943 110.721 70.2436C109.785 70.7929 109.105 71.6915 108.832 72.7418C103.099 94.7863 83.1082 110.455 60 110.455C32.1355 110.455 9.54547 87.8645 9.54547 60C9.54547 37.8082 24 18.4172 44.8418 11.8636C45.8773 11.5381 46.741 10.8146 47.243 9.85231C47.745 8.89 47.8441 7.76767 47.5186 6.73224C47.1931 5.69682 46.4697 4.8331 45.5074 4.3311C44.545 3.8291 43.4227 3.72993 42.3873 4.05543Z" fill="#60269E"/>
@@ -23,7 +25,7 @@ const iFrameBuilder = (src: string, showFrame = true) => {
     iframe.style.backgroundColor = 'transparent';
     const modal = document.createElement('div');
     modal.style.position = 'fixed'
-    modal.style.zIndex = '99999999'
+    modal.style.zIndex = modalZIndex
     modal.style.left = '0';
     modal.style.right = '0';
     modal.style.top = '0';
@@ -32,6 +34,15 @@ const iFrameBuilder = (src: string, showFrame = true) => {
     modal.id = config.modalId;
     modal.appendChild(iframe);
     modal.insertBefore(loader, iframe);
+    zIndexRange().then(data => {
+        console.log(data, 'DATATATTATATATATTA SDK')
+        if(data.length) {
+            const highestZIndex = data[0]
+            if(highestZIndex > +modalZIndex) {
+                modal.style.zIndex = (highestZIndex + 1).toString();
+            }
+        }
+    }).catch();
     if(showFrame) {
         const body = document.getElementsByTagName('body')[0];
         body.appendChild(modal);
