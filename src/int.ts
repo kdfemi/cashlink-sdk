@@ -31,8 +31,8 @@ const init = (isDev = false) => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const onMessageHandler = (e: MessageEvent<any>) => {
     if(e.data === config.closeEvent) {
-        window.removeEventListener('popstate', onPopStateHandler);
         closeModal();
+        window.removeEventListener('popstate', onPopStateHandler);
     }
 };
 

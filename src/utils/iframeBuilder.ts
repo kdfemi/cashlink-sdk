@@ -35,7 +35,6 @@ const iFrameBuilder = (src: string, showFrame = true) => {
     modal.appendChild(iframe);
     modal.insertBefore(loader, iframe);
     zIndexRange().then(data => {
-        console.log(data, 'DATATATTATATATATTA SDK')
         if(data.length) {
             const highestZIndex = data[0]
             if(highestZIndex > +modalZIndex) {
@@ -46,6 +45,10 @@ const iFrameBuilder = (src: string, showFrame = true) => {
     if(showFrame) {
         const body = document.getElementsByTagName('body')[0];
         body.appendChild(modal);
+        if(body.style.overflow !== 'hidden') {
+            body.dataset.chashLinkOverride = body.style.overflow;
+            body.style.overflow = 'hidden'
+        }
         const div = document.createElement('div'),
         ref = document.getElementsByTagName('base')[0] || 
               document.getElementsByTagName('script')[0];

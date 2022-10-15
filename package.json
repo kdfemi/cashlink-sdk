@@ -1,6 +1,6 @@
 {
   "name": "cashlink-sdk",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Cashlink web sdk",
   "main": "lib/bundle.js",
   "types": "lib/index.d.ts",
