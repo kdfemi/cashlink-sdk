@@ -15,12 +15,16 @@ const transact = (props: InitTransaction) => {
     const {
         amount = 0, 
         orderType, 
-        token
+        token,
+        ecosystem,
+        ...params
     } = props;
     const src =  buildUrl('/', {
         token: token,
         amount: amount,
-        orderType: orderType
+        orderType: orderType,
+        ecosystem: ecosystem,
+        ...params
     });
     iFrameBuilder(src);
 }

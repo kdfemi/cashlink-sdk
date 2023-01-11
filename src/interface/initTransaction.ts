@@ -5,6 +5,7 @@ import { OrderType } from "./orderType";
  * @interface
  */
 export interface InitTransaction {
+    [ key: string]: any;
     /**
      * Order amount
      */
@@ -17,4 +18,8 @@ export interface InitTransaction {
      * Authentication token
      */
     token: string;
+    /**
+     * Ecosystem
+     */
+    ecosystem: string
 }

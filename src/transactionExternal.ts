@@ -15,13 +15,17 @@ const transactExternal = (props: ExternInitTransaction) => {
     const {
         token,
         chatToken,
-        orderId
+        orderId,
+        ecosystem,
+        ...params
     } = props;
 
     const src =  buildUrl('external/:token/:orderId/:extChatToken', {
         token: token,
         extChatToken: chatToken,
-        orderId
+        orderId,
+        ecosystem: ecosystem,
+        ...params
     });
     iFrameBuilder(src);
 }

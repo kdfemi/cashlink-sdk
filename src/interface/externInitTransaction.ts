@@ -3,6 +3,7 @@
  * @interface
  */
 export interface ExternInitTransaction {
+    [ key: string]: any;
     /**
      * Authentication token from Cashlink
      */
@@ -15,4 +16,8 @@ export interface ExternInitTransaction {
      * Token required for user to able to chat with merchant
      */
     chatToken: string;
+    /**
+     * Ecosystem
+     */
+    ecosystem: string
 }
